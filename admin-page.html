@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page - 7b Server</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="emails.js"></script>
 </head>
 <body>
     <div class="navbar">
+        <a href="#emails">E-Mails</a>
         <a href="index.html">Startseite</a>
-        <a href="#about">Über uns</a>
-        <a href="#ranks">Ränge</a>
-        <a href="#shop">Shop</a>
-        <a href="#forms">Formulare</a>
-        <a href="admin-login.html">Admin Login</a>
       </div>
       <hr>
+      <h1>Admin Seite - 7b Server</h1>
+      <hr>
+      <div class="section" id="emails">
+        <h1>E-mail Postfach</h1>
+        <p>Hier siehst du die Emails. Also Bestellungen usw.</p>
+        <button id="auth-button">Mit Google anmelden</button>
+        <button id="sign-out-button" style="display:none;">Abmelden</button>
+      </div>
 </body>
 </html>

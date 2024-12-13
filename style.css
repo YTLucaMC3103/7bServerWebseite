@@ -103,6 +103,7 @@ input {
 
 .player_head {
     margin-top: 15px;
+    height: 200px;
 }
 
 .weisermakki {
@@ -248,6 +249,4 @@ h3 {
 .error {
     color: red;
 }
-
-
 
