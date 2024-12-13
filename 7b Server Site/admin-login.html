@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - 7b Server</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="login.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Startseite</a>
+        <a href="index.html#about">Über uns</a>
+        <a href="index.html#ranks">Ränge</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#forms">Formulare</a>
+        <a href="admin-login.html">Admin Login</a>
+      </div>
+      <hr>
+    <h1>Admin Login</h1>
+    <hr>
+    <h2>Hier können sich die Admins einloggen, um Anfragen, Formulare oder Bestellungen annehmen.</h2>
+    <form id="login-form">
+        <label for="first">Benutzername:</label>
+        <input type="text" id="first" name="first" placeholder="Geben Sie Ihren Benutzernamen ein" required>
+
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" placeholder="Geben Sie Ihr Passwort ein" required>
+
+        <button type="button" id="login-button" class="submit">Absenden</button>
+    </form>
+    <div class="message" id="message"></div>
+</body>
+</html>
