@@ -1,0 +1,10 @@
+{
+    "theme_color": "#c9be3b",
+    "background_color": "#333",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/index.html",
+    "name": "7b Server Webseite",
+    "short_name": "7b Server",
+    "description": "Webseite für den Minecraft-Server der 7b"
+}
