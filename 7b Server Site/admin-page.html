@@ -1,28 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page - 7b Server</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="admin.js"></script>
-</head>
-<body>
-    <div class="navbar">
-        <a href="#forms">E-Mails</a>
-        <a href="index.html">Startseite</a>
+<html>
+  <head>
+    <title>Admin Seite - LuxiSMP</title>
+    <meta charset="utf-8"/>
+    <script src="admin-page.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+    <link rel="stylesheet" href="admin-page.css">
+  </head>
+  <body>
+
+    <div id="snackbar">News eingereicht! <i class="fa-regular fa-circle-check"></i></div>
+
+    <div class="header-bg">
+      <div class="navbar">
+        <a href="#emails">Emails</a>
+        <a href="#news">News</a>
+        <a href="admin-login.html">Ausloggen</a>
       </div>
       <hr>
-      <h1>Admin Seite - 7b Server</h1>
+      <h1>7b Server Admin Seite</h1>
       <hr>
       <div class="section" id="emails">
-        <h1>Anträge</h1>
-        <p>Hier siehst du die empfangenen Formulare (Also Anträge).</p>
-        <br>
-        <div id="form-data">
-          
-        </div>
+        <h1>Emails</h1>
+        <p>Hier kannst du die Emails des Admin-Teams (<a href="mailto:serverteamder7b@gmail.com">serverteamder7b@gmail.com</a>) entgegen nehmen,
+        analysieren und beantworten. Wenn ein Formular ausgefüllt wird, bekommt das Server Team direkt eine E-Mail</p>
+    
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <button class="googleAuthorize" id="authorize_button" onclick="handleAuthClick()">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Icon">
+          Authorize
+        </button>
+        <button class="googleAuthorize" id="signout_button" onclick="handleSignoutClick()">
+          <img src="https://www.svgrepo.com/show/469810/sign-out-left-2.svg" alt="Sign Out Icon">
+          Sign Out
+        </button>
+    
+        <pre id="content" style="white-space: pre-wrap;"></pre>
       </div>
-</body>
+
+      <div class="section">
+        <hr>
+        <h1>News</h1>
+        <p>Hier kann das Admin Team Neuigkeiten über den Server, also über Back-Ups, Ränge, Banns, etc. eintragen die dann bei <a href="./index.html#news">Der News Section</a> auf Der Startseite
+        eingesehen werden können.</p>
+        <form id="news-form">
+          <input type="text" id="title" placeholder="Titel" required><br>
+          <textarea id="content" placeholder="Inhalt" required></textarea><br>
+          <button type="submit" onclick="myFunction()">News hinzufügen</button>
+      </form>
+      </div>
+  </body>
 </html>

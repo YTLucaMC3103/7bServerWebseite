@@ -333,18 +333,18 @@ select {
 }
 
 .contact-input {
-    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #555;
     border-radius: 8px;
-    background-color: #3f3f3f;
+    background-color: #444;
     color: white;
-    margin-top: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    margin-left: 30%;
 }
 
 select:hover {
@@ -399,4 +399,49 @@ textarea#description:hover {
 
 .d-none {
     display: none;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+}
+  
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+  
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+  
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+  
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+.fa-circle-check {
+    color: lightgreen;
 }

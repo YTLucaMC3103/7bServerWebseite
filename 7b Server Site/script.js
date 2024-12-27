@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const userInputHash = await calculateSHA256(userInput);
 
         if (validHashes.includes(userInputHash)) {
-            window.location.href = 'https://jovial-bunny-450f51.netlify.app/index.html';
+            window.location.href = 'https://luxismp.netlify.app/index.html';
             return; 
         }
     });
@@ -71,4 +71,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    document.getElementById('payment-button').addEventListener('click', function() {
+        function redirectToPayment(price) {
+            window.location.href = `./payment/payment.html?price=${price}`;
+        }
+    })
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const price = queryParams.get('price');
+
+    if (price) {
+        document.getElementById('payment-amount').textContent = `Zu bezahlen: ${price}€`;
+    } else {
+        document.getElementById('payment-amount').textContent = `Kein Preis verfügbar`
+    }
 });
+
+function myFunction() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+  
+    // Add the "show" class to DIV
+    x.className = "show";
+  
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+async function loadNews() {
+    const response = await fetch('/.netlify/functions/news');
+    const data = await response.json();
+
+    const container = document.getElementById('news-container');
+    container.innerHTML = '';
+
+    data.news.forEach(item => {
+        const newsItem = document.createElement('div');
+        newsItem.innerHTML = `
+            <h2>${item.title}</h2>
+            <p>${item.content}</p>
+            <small>Erstellt am: ${new Date(item.createdAt).toLocaleString()}</small>
+        `;
+        container.appendChild(newsItem);
+    });
+}
+
+loadNews();

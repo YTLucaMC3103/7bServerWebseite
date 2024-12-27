@@ -4,7 +4,7 @@
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/index.html",
-    "name": "7b Server Webseite",
-    "short_name": "7b Server",
-    "description": "Webseite für den Minecraft-Server der 7b"
+    "name": "LuxiSMP Webseite",
+    "short_name": "LuxiSMP",
+    "description": "Webseite für den LuxiSMP"
 }

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
         if (username === validCredentials.username && password === validCredentials.password) {
-            window.location.href = 'https://jovial-bunny-450f51.netlify.app/admin-page.html'
+            window.location.href = 'https://luxismp.netlify.app/admin-page.html'
         } else {
             messageBox.textContent = 'Ungültiger Benutzername oder Passwort. Bitte versuchen Sie es erneut.';
             messageBox.className = 'message error';

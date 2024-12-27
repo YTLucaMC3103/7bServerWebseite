@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7b Server</title>
+    <title>LuxiSMP - Startseite</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/8da74ceea1.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="myFunction()">
+
+    <div id="snackbar">Formular eingereicht! <i class="fa-regular fa-circle-check"></i></div>
+
     <div class="header-bg">
         <div class="navbar">
           <a href="index.html">Startseite</a>
+          <a href="#news">News</a>
           <a href="#about">Über uns</a>
           <a href="#ranks">Ränge</a>
           <a href="#shop">Shop</a>
@@ -21,23 +25,28 @@
           <a href="admin-login.html">Admin Login</a>
         </div>
         <hr>
-    <h1 class="headline">7b Server</h1>
+    <img class="headline" src="images/7bServer2-removebg-preview.png" alt="Server Logo">
+        <hr>
+    <div class="section" id="news">
+        <h1>News</h1>
+        <p></p>
+    </div>
         <hr>
     <div class="section" id="about">
         <h1>Über uns</h1>
-        <p>Hier findet ihr Informationen über den Server, das Admin Team und grunsätzliche Sachen.</p>
+        <p>Hier findet ihr das Admin Team und grunsätzliche Sachen.</p>
         <h2 class="underlined">Das Server-Team</h2>
         <div class="player_container">
             <div class="container">
                     <img src="./icons/kugelwasser.jpg" class="player_head">
                 <h2>Kugelwasser</h2>
-                <p class="player_description">...oder auch einfach Luca, ist der Mitgründer des 7b-Servers. Von Tag 1 an programmiert und codet er die meisten Sachen auf dem Server. Er hat z. B. diese coole Website erstellt und programmiert. Luca könnt ihr zum Thema Mods oder andere technischen Sachen befragen, z. B. wenn ein Command nicht funktioniert. Außerdem ist er der beste Redstoner im Team. Und: er macht hauptberuflich “Filow-Songs in Mineraft kopieren”. </p>
+                <p class="player_description">...oder auch einfach Luca, ist der Mitgründer des LuxiSMP. Von Tag 1 an programmiert und codet er die meisten Sachen auf dem Server. Er hat z. B. diese coole Website erstellt und programmiert. Luca könnt ihr zum Thema Mods oder andere technischen Sachen befragen, z. B. wenn ein Command nicht funktioniert. Außerdem ist er der beste Redstoner im Team. Und: er macht hauptberuflich “Filow-Songs in Mineraft kopieren”. </p>
             </div>
 
             <div class="container">
                 <img src="./icons/weisermakki.png" class="weisermakki">
                 <h2>weisermakki</h2>
-                <p class="player_description">...oder auch einfach Maxi, ist der Erfinder des 7b-Servers. Er hatte die Idee dafür und trug maßgeblich dazu bei, es zu verwirklichen. Er besitzt den Server, deswegen auch der Rang “Owner”. Ihn könnt ihr zu allem eine Frage stellen. Auch ist Maxi der beste Builder des Teams. Und: er liebt Text-Displays. </p>
+                <p class="player_description">...oder auch einfach Maxi, ist der Erfinder des LuxiSMP. Er hatte die Idee dafür und trug maßgeblich dazu bei, es zu verwirklichen. Er besitzt den Server, deswegen auch der Rang “Owner”. Ihn könnt ihr zu allem eine Frage stellen. Auch ist Maxi der beste Builder des Teams. Und: er liebt Text-Displays. </p>
             </div>
 
             <div class="container">
@@ -74,14 +83,14 @@
                     <img src="icons/coin.png" height="90px" class="container-content">
                 <h3>10 Coins</h3>
                 <h3>1€</h3>
-                <a href="payment/payment1.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(1)" id="payment-button">Kaufen</button>
             </div>
 
             <div class="container">
                     <img src="icons/coins.png" height="90px" class="container-content">
                 <h3>100 Coins</h3>
                 <h3>3€</h3>
-                <a href="payment/payment2.html"><button class="buy">Kaufen</button></a>
+                <a href="payment/payment2.html"><button class="buy" id="payment-button">Kaufen</button></a>
             </div>
 
             <div class="container">
@@ -98,28 +107,28 @@
                     <img src="rank_icons/donator.png" class="container-content">
                 <h3>Donator</h3>
                 <h3>8€</h3>
-                <a href="payment/payment3.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(8)">Kaufen</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp.png" class="mvp">
                 <h3>MVP</h3>
                 <h3>2€</h3>
-                <a href="payment/payment1.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(2)" id="payment-button">Kaufen</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp+.png" class="mvp_p">
                 <h3>MVP +</h3>
                 <h3>4€</h3>
-                <a href="payment/payment2.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(4)">Kaufen</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp++.png" class="mvp_pp">
                 <h3>MVP ++</h3>
                 <h3>7€</h3>
-                <a href="payment/payment3.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(7)">Kaufen</button>
             </div>
         </div>
         <div class="shop_container">
@@ -127,21 +136,21 @@
                     <img src="rank_icons/vip.png" class="container-content">
                 <h3>VIP</h3>
                 <h3>6€</h3>
-                <a href="payment/payment2.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(6)">Kaufen</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/vip+.png" class="container-content">
                 <h3>VIP +</h3>
                 <h3>9€</h3>
-                <a href="payment/payment3.html"><button class="buy">Kaufen</button></a>
+                <button class="buy" onclick="redirectToPayment(9)">Kaufen</button>
             </div>
 
             <div class="container">
                 <img src="rank_icons/vip+.png" class="container-content">
             <h3>Elite</h3>
             <h3>10€</h3>
-            <a href="payment/payment3.html"><button class="buy">Kaufen</button></a>
+            <button class="buy" onclick="redirectToPayment(10)">Kaufen</button>
         </div>
         </div>
     </div>
@@ -149,14 +158,14 @@
     <div class="section" id="forms">
         <hr>
         <h1>Formulare</h1>
-        <p class="form-description">Hier kannst du Formulare ausfüllen. Also kannst du hier zum Beispiel Entbannungsanträge, Anfragen,
-            oder sonstigem ausfüllen. Die Felder mit dem Icon " <i class="fa-solid fa-asterisk"></i> " müssen ausgefüllt
-            werden.
-        </p>
             <div class="shop-container">
-                <p>Danke! Dein Formular wurde gesendet. Die Admins versuchen innerhalb von maximal 2 Tagen zu antworten.
-                    Wenn die Admins Urlaubs haben, werdet ihr in den Server <a href="#news">News</a>  darüber informiert.
-                </p>
+            <p class="form-description">Hier kannst du Formulare ausfüllen. Also kannst du hier zum Beispiel Entbannungsanträge, Anfragen,
+            oder sonstigem ausfüllen. Die Felder mit dem Icon " <i class="fa-solid fa-asterisk"></i> " müssen ausgefüllt
+            werden. Bitte dieses Tool nicht missbrauchen oder spamen, jeglicher Missbrauch kann zurückgeführt und mit einer Strafe behandelt werden.</p>
+            <br>
+            <p class="form-description">Danke für dein Formular! Das Admin Team wird sich dieses so schnell wie möglich
+                anschauen, bearbeiten und sich gegebenfalls mit dir in Verbindung setzen.
+            </p>
         </div>
         <hr>
     </div>
@@ -295,7 +304,7 @@
     </div>
 
     <footer>
-        <p>&copy; 7b Server Webseite. Alle Rechte vorbehalten.</p>
+        <p>&copy; LuxiSMP Webseite. Alle Rechte vorbehalten.</p>
     </footer>
 </body>
 </html>
