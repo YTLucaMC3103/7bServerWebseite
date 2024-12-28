@@ -72,22 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.getElementById('payment-button').addEventListener('click', function() {
-        function redirectToPayment(price) {
-            window.location.href = `./payment/payment.html?price=${price}`;
-        }
-    })
-
-    const queryParams = new URLSearchParams(window.location.search);
-    const price = queryParams.get('price');
-
-    if (price) {
-        document.getElementById('payment-amount').textContent = `Zu bezahlen: ${price}€`;
-    } else {
-        document.getElementById('payment-amount').textContent = `Kein Preis verfügbar`
-    }
-});
-
 function myFunction() {
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
@@ -118,3 +102,47 @@ async function loadNews() {
 }
 
 loadNews();
+});
+
+function showSnackbar(message) {
+    var x = document.getElementById("snackbar");
+    x.textContent = message;
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+const cart = [];
+
+function addToCart(itemName, itemPrice) {
+    cart.push({ name: itemName, price: itemPrice });
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    showSnackbar(`${itemName} wurde zum Warenkorb hinzugefügt!`);
+}
+
+function getParameterByName(name) {
+    const url = window.location.href;
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Preis anzeigen
+window.onload = function () {
+    const price = getParameterByName('price');
+    if (price) {
+        document.getElementById('price').textContent = price + '€';
+    } else {
+        document.getElementById('price').textContent = 'Unbekannt';
+    }
+};
+
+function sendPassword() {
+    const email = document.getElementById('email-adress')
+
+    if (email != '') {
+        
+    }
+}

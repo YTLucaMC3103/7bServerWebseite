@@ -6,6 +6,7 @@ body, html {
     color: white;
     scroll-behavior: smooth;
     align-items: center;
+    overflow-x: hidden;
 }
 
 p {
@@ -98,11 +99,10 @@ input {
 }
 
 .headline {
-    color: #c9be3b;
-    font-size: 4rem;
     position: relative;
     display: inline-block;
     overflow: hidden;
+    width: 80%;
 }
 
 .underlined {
@@ -139,6 +139,7 @@ input {
 
 a {
     color: white;
+    font-size: 20px;
 }
 
 .rank-info-text {
@@ -242,7 +243,8 @@ h3 {
 .buy {
     background-color: #b9b9b9;
     padding: 0 32px;
-    height: 50px;
+    height: 60px;
+    width: 200px;
     border: unset;
     font-size: 24px;
     border-radius: 10px;

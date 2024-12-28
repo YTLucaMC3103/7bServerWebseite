@@ -9,15 +9,20 @@
     <script src="https://kit.fontawesome.com/8da74ceea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <div id="snackbar"><i class="fa-regular fa-circle-check"></i></div>
+
     <div class="header-bg">
         <div class="navbar">
           <a href="index.html">Startseite</a>
           <a href="#news">News</a>
+          <a href="/payment/payment2.html">Test</a>
           <a href="#about">Über uns</a>
           <a href="#ranks">Ränge</a>
           <a href="#shop">Shop</a>
           <a href="#forms">Formulare</a>
           <a href="#mods">Modifikationen</a>
+          <a href="/payment/cart.html">Warenkorb</a>
           <a href="code.html">Codes eingeben</a>
           <a href="admin-login.html">Admin Login</a>
         </div>
@@ -80,23 +85,23 @@
         <div class="shop_container">
             <div class="container">
                     <img src="icons/coin.png" height="90px" class="container-content">
-                <h3>10 Coins</h3>
-                <h3>1€</h3>
-                <button class="buy" onclick="redirectToPayment(1)" id="payment-button">Kaufen</button>
+                <h3>100.000 Coins</h3>
+                <h3>1,50€</h3>
+                <button class="buy" onclick="addToCart('100.000 Coins', 1.50)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="icons/coins.png" height="90px" class="container-content">
-                <h3>100 Coins</h3>
-                <h3>3€</h3>
-                <a href="payment/payment2.html"><button class="buy" id="payment-button">Kaufen</button></a>
+                <h3>500.000 Coins</h3>
+                <h3>5,50€</h3>
+                <button class="buy" onclick="addToCart('500.000 Coins', 5.50)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="icons/coins.png" height="90px" class="container-content">
-                <h3>2000 Coins</h3>
-                <h3>6€</h3>
-                <a href="payment/payment3.html"><button class="buy">Kaufen</button></a>
+                <h3>1.000.000 Coins</h3>
+                <h3>10€</h3>
+                <button class="buy" onclick="addToCart('1.000.000 Coins', 10)">In den Warenkorb</button>
             </div>
         </div>
         <hr>
@@ -105,51 +110,51 @@
             <div class="container">
                     <img src="rank_icons/donator.png" class="container-content">
                 <h3>Donator</h3>
-                <h3>8€</h3>
-                <button class="buy" onclick="redirectToPayment(8)">Kaufen</button>
+                <h3>9€</h3>
+                <button class="buy" onclick="addToCart('Donator Rang', 9)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp.png" class="mvp">
                 <h3>MVP</h3>
                 <h3>2€</h3>
-                <button class="buy" onclick="redirectToPayment(2)" id="payment-button">Kaufen</button>
+                <button class="buy" onclick="addToCart('MVP Rang', 2)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp+.png" class="mvp_p">
                 <h3>MVP +</h3>
                 <h3>4€</h3>
-                <button class="buy" onclick="redirectToPayment(4)">Kaufen</button>
+                <button class="buy" onclick="addToCart('MVP+ Rang', 4)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp++.png" class="mvp_pp">
                 <h3>MVP ++</h3>
-                <h3>7€</h3>
-                <button class="buy" onclick="redirectToPayment(7)">Kaufen</button>
+                <h3>6€</h3>
+                <button class="buy" onclick="addToCart('MVP++ Rang', 6)">In den Warenkorb</button>
             </div>
         </div>
         <div class="shop_container">
             <div class="container">
                     <img src="rank_icons/vip.png" class="container-content">
                 <h3>VIP</h3>
-                <h3>6€</h3>
-                <button class="buy" onclick="redirectToPayment(6)">Kaufen</button>
+                <h3>7€</h3>
+                <button class="buy" onclick="addToCart('VIP Rang', 7)">In den Warenkorb</button>
             </div>
 
             <div class="container">
                     <img src="rank_icons/vip+.png" class="container-content">
                 <h3>VIP +</h3>
-                <h3>9€</h3>
-                <button class="buy" onclick="redirectToPayment(9)">Kaufen</button>
+                <h3>8€</h3>
+                <button class="buy" onclick="addToCart('VIP+ Rang', 8)">In den Warenkorb</button>
             </div>
 
             <div class="container">
-                <img src="rank_icons/vip+.png" class="container-content">
+                <img src="rank_icons/elite.png" class="container-content">
             <h3>Elite</h3>
             <h3>10€</h3>
-            <button class="buy" onclick="redirectToPayment(10)">Kaufen</button>
+            <button class="buy" onclick="addToCart('Elite Rang', 10)">In den Warenkorb</button>
         </div>
         </div>
     </div>
@@ -182,8 +187,8 @@
                     <option value="Support">Support (Hilfe)</option>
                     <option value="Griefing">Griefing</option>
                     <option value="Report">Spieler melden</option>
-                    <option value="Sonstiges">Sonstiges</option>
                     <option value="Feedback">Feedback</option>
+                    <option value="Sonstiges">Sonstiges</option>
                 </select>
 
                 <p>Beschreibung</p>

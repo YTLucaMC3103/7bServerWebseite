@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxiSMP - Warenkorb</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="cart.js"></script>
+</head>
+<body onload="loadCart()">
+    <div class="navbar">
+        <a href="../index.html">Startseite</a>
+        <a href="../index.html#news">News</a>
+        <a href="../index.html#about">Über uns</a>
+        <a href="../index.html#ranks">Ränge</a>
+        <a href="../index.html#shop">Shop</a>
+        <a href="../index.html#forms">Formulare</a>
+        <a href="../index.html#mods">Modifikationen</a>
+        <a href="cart.html">Warenkorb</a>
+        <a href="../code.html">Codes eingeben</a>
+        <a href="../admin-login.html">Admin Login</a>
+    </div>
+    <hr>
+    <h1>Warenkorb</h1>
+    <hr>
+    <br>
+    <div id="cart-items"></div>
+    <h2>Gesamtpreis: <span id="total-price">0€</span></h2>
+    <button onclick="checkout()" class="buy">Bezahlen</button>
+    <br>
+    <a href="../index.html#shop">Zurück zum Shop</a>
+</body>
+</html>

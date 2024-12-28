@@ -1,0 +1,4 @@
+LuxiSMP
+
+Benutzername: admin
+Passwort: QML_smp787
