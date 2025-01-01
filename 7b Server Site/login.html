@@ -22,20 +22,24 @@
       </div>
       <hr>
       <h1>Login</h1>
-      <p>Hier kannst du dich einloggen, um Käufe zu tätigen, auf News zu reagieren und zu kommentieren und vieles mehr.</p>
+      <p>Hier könnt ihr euch mit eurem Account einloggen. Das ist wichtig um Käufe zu tätigen und um auf Sachen zu reagieren und kommentieren.</p>
+      <h2>⚠️ Achtung! Bitte sorgt dafür euch mit eurem richtigen Minecraft Namen anzumelden. Andernfalls können euch Bestellungen und ähnliches
+        nicht zugestellt werden! ⚠️</h2>
       <hr>
-        <div class="error" id="error-message"></div>
-        <label for="minecraftName">Minecraft Name</label>
-        <br>
-        <input type="text" id="minecraftName" placeholder="Dein Minecraft Name">
-        <br>
-        <label for="password">Passwort</label>
-        <br>
-        <input type="password" id="password" placeholder="Dein Passwort">
-        <br>
-        <button onclick="" class="buy">Anmelden</button>
-        <br>
-        <a href="forgot-password.html">Passwort vergessen?</a>
-        <a href="admin-login.html">Du bist ein Admin? Melde dich hier an!</a>
+      <br>
+      <div class="form-container">
+        <div id="login-form">
+          <input type="text" placeholder="Dein Minecraft Name" id="login-minecraft-name">
+          <input type="password" placeholder="Dein Passwort" id="login-password">
+          <button onclick="login()">Anmelden</button>
+          <p>Kein Konto? <a href="#" onclick="showRegister()">Registrieren</a></p>
+        </div>
+        <div class="hidden" id="register-form">
+          <input type="text" placeholder="Dein Minecraft Name" id="register-minecraft-name">
+          <input type="password" placeholder="Dein Passwort" id="register-password">
+          <button onclick="register()">Registrieren</button>
+          <p>Bereits ein Konto? <a href="#" onclick="showLogin()">Anmelden</a></p>
+        </div>
+      </div>
 </body>
 </html>

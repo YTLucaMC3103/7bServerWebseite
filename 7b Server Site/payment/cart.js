@@ -27,3 +27,19 @@ function checkout() {
     const total = cart.reduce((sum, item) => sum + item.price, 0);
     window.location.href = `./payment.html?price=${total}`;
 }
+
+function replaceDotsWithCommas() {
+    function traverseAndReplace(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = node.textContent.replace(/(\d+)\.(\d+)/g, (match, intPart, decimalPart) => {
+                return `${intPart},${decimalPart.padEnd(2, '0')}`;
+            }).replace(/\./g, ',');
+        } else {
+            node.childNodes.forEach(traverseAndReplace);
+        }
+    }
+
+    traverseAndReplace(document.body);
+}
+
+window.onload = replaceDotsWithCommas;

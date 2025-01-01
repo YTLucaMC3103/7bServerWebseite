@@ -139,10 +139,48 @@ window.onload = function () {
     }
 };
 
-function sendPassword() {
-    const email = document.getElementById('email-adress')
+function showRegister() {
+    document.getElementById("login-form").classList.add("hidden");
+    document.getElementById("register-form").classList.remove("hidden");
+}
 
-    if (email != '') {
-        
+function showLogin() {
+    document.getElementById("register-form").classList.add("hidden");
+    document.getElementById("login-form").classList.remove("hidden");
+}
+
+let users = JSON.parse(localStorage.getItem("users")) || {};
+
+function register() {
+    const username = document.getElementById("register-minecraft-name").value;
+    const password = document.getElementById("register-password").value;
+
+    if (!username || !password) {
+        alert('Bitte Minecraft Name und Passwort eingeben!');
+        return;
     }
+
+    if (users[username]) {
+        alert('Dieser Minecraft Name wurde schon registriert!');
+        return;
+    }
+
+    users[username] = { password, rank:null };
+    localStorage.setItem("users", JSON.stringify(users));
+    alert('Registrierung erfolgreich!');
+    showLogin();
+}
+
+function login() {
+    const username = document.getElementById("login-minecraft-name").value;
+    const password = document.getElementById("login-password").value;
+
+    if (!users[username] || users[username].password !== password) {
+        alert('Ungültige Anmeldedaten!');
+        return;
+    }
+
+    localStorage.setItem("currentUser", username);
+    alert(`Willkommen, ${username}!`);
+    window.location.href = "index.html#shop";
 }
