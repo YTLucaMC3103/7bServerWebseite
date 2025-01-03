@@ -111,6 +111,8 @@ function showSnackbar(message) {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+/*
+
 const cart = [];
 
 function addToCart(itemName, itemPrice) {
@@ -119,6 +121,7 @@ function addToCart(itemName, itemPrice) {
 
     showSnackbar(`${itemName} wurde zum Warenkorb hinzugefügt!`);
 }
+*/
 
 function getParameterByName(name) {
     const url = window.location.href;
@@ -138,6 +141,45 @@ window.onload = function () {
         document.getElementById('price').textContent = 'Unbekannt';
     }
 };
+
+function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+}
+
+let currentUser = localStorage.getItem("currentUser");
+
+function initializeAccountButton() {
+    const accountButton = document.getElementById("accountButton");
+    const accountDropdown = document.getElementById("accountDropdown");
+
+    if (currentUser) {
+        accountButton.textContent = "Account";
+        accountDropdown.style.display = "block";
+    } else {
+        accountButton.textContent = "Login";
+        accountDropdown.style.display = "none";
+    }
+}
+
+function handleAccountClick() {
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    currentUser = null;
+    initializeAccountButton();
+    window.location.reload();
+    showSnackbar('Du wurdest abgemeldet!');
+}
+
+document.addEventListener("DOMContentLoaded", initializeAccountButton);
 
 function showRegister() {
     document.getElementById("login-form").classList.add("hidden");

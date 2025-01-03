@@ -10,26 +10,36 @@
     <script src="https://kit.fontawesome.com/8da74ceea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div id="snackbar"><i class="fa-regular fa-circle-check"></i></div>
 
-    <div class="header-bg">
-        <div class="navbar">
-          <a href="index.html">Startseite</a>
-          <a href="#news">News</a>
-          <a href="/payment/payment2.html">Test</a>
-          <a href="#about">Über uns</a>
-          <a href="#ranks">Ränge</a>
-          <a href="#shop">Shop</a>
-          <a href="#forms">Formulare</a>
-          <a href="#mods">Modifikationen</a>
-          <a href="/payment/cart.html">Warenkorb</a>
-          <a href="code.html">Codes eingeben</a>
-          <a href="admin-login.html">Admin Login</a>
+    <div class="navbar">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+        <div class="logo">
+            <img src="images/7bServer2-removebg-preview.png" alt="Logo" class="logo">
         </div>
-        <hr>
-    <img class="headline" src="images/7bServer2-removebg-preview.png" alt="Server Logo">
-        <hr>
+
+        <div class="dropdown">
+            <button id="accountButton" onclick="handleAccountClick()">Login</button>
+            <div id="accountDropdown" class="dropdown-content" style="display: none;">
+                <a href="#">Profil</a>
+                <a href="#">Einstellungen</a>
+                <a href="#" onclick="logout()">Abmelden</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <a href="#news" onclick="closeNav()">News</a>
+        <a href="#about" onclick="closeNav()">Über uns</a>
+        <a href="#ranks" onclick="closeNav()">Ränge</a>
+        <a href="#shop" onclick="closeNav()">Shop</a>
+        <a href="#forms" onclick="closeNav()">Formulare</a>
+        <a href="#mods" onclick="closeNav()">Modifikationen</a>
+    </div>
+
+<div class="content">
     <div class="section" id="news">
         <h1>News</h1>
         <div id="news-container">
@@ -68,19 +78,15 @@
         <div class="shop_container">
             <div class="info-container">
                 <p>
-                    <h2>Ränge</h2>
-                    <h3 class="rank-info-text">Normal: Um den Normal Rang zu bekommen, musst du einfach nur den Befehl /trigger verify
-                        eingeben, um dich zu verifizieren. Daraufhin bekommst du im Chat einen Code und einen Link,
-                        auf den du klickst. Dann siehst du ein Feld, in dem du deinen Code eingibst.
-                    </h3>
-                    <h3></h3>
+                    <h2>Rankup</h2>
+                    <h3 class="rank-info-text"></h3>
                 </p>
             </div>
         </div>
     </div>
     <div class="section" id="shop">
         <h1>Shop</h1>
-        <p>Kaufe dir hier Coins und Ränge.</p>
+        <p>Kaufe dir hier In-Game-Währung.</p>
         <hr>
         <h2>Coins</h2>
         <div class="shop_container">
@@ -107,55 +113,65 @@
         </div>
         <hr>
         <h2>Ränge</h2>
+        <p>Hier sind alle Ränge aufgelistet, die du als Spieler bekommen kannst. Sie sind Chronologisch sortiert,
+            das heißt, dass du zuerst den Rang "Normal" hast, dich dann zu MVP, dann zu MVP+ und immer so weiter hoch
+            arbeitest.
+        </p>
+        <h2 class="underlined">⚠️Achtung! Bei den Preisen handelt es sich um die In-Game-Währung "$" auf dem LuxiSMP-Server⚠️</h2>
         <div class="shop_container">
             <div class="container">
-                    <img src="rank_icons/donator.png" class="container-content">
-                <h3>Donator</h3>
-                <h3>7,50€</h3>
-                <button class="buy" onclick="addToCart('Donator Rang', 7.50)">In den Warenkorb</button>
+                    <img src="rank_icons/mvp.png" class="mvp">
+                <h3>Normal</h3>
+                <h3>Kostenlos</h3>
+                <a href="ranks.html#normal"><button class="buy">Informationen zum Rang</button></a>
             </div>
-
             <div class="container">
                     <img src="rank_icons/mvp.png" class="mvp">
                 <h3>MVP</h3>
-                <h3>0,50€</h3>
-                <button class="buy" onclick="addToCart('MVP Rang', 0.50)">In den Warenkorb</button>
+                <h3>50.000$</h3>
+                <a href="ranks.html#mvp"><button class="buy">Informationen zum Rang</button></a>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp+.png" class="mvp_p">
                 <h3>MVP +</h3>
-                <h3>2,50€</h3>
-                <button class="buy" onclick="addToCart('MVP+ Rang', 2.50)">In den Warenkorb</button>
+                <h3>150.000$</h3>
+                <a href="ranks.html#mvp+"><button class="buy">Informationen zum Rang</button></a>
             </div>
 
             <div class="container">
                     <img src="rank_icons/mvp++.png" class="mvp_pp">
                 <h3>MVP ++</h3>
-                <h3>4,50€</h3>
-                <button class="buy" onclick="addToCart('MVP++ Rang', 4.50)">In den Warenkorb</button>
+                <h3>250.000$</h3>
+                <a href="ranks.html#mvp++"><button class="buy">Informationen zum Rang</button></a>
             </div>
-        </div>
-        <div class="shop_container">
+
             <div class="container">
                     <img src="rank_icons/vip.png" class="container-content">
                 <h3>VIP</h3>
-                <h3>5,50€</h3>
-                <button class="buy" onclick="addToCart('VIP Rang', 5.50)">In den Warenkorb</button>
+                <h3>350.000</h3>
+                <a href="ranks.html#vip"><button class="buy">Informationen zum Rang</button></a>
             </div>
 
             <div class="container">
                     <img src="rank_icons/vip+.png" class="container-content">
                 <h3>VIP +</h3>
-                <h3>6,50€</h3>
-                <button class="buy" onclick="addToCart('VIP+ Rang', 6.50)">In den Warenkorb</button>
+                <h3>450.000$</h3>
+                <a href="ranks.html#vip+"><button class="buy">Informationen zum Rang</button></a>
+            </div>
+
+            <div class="container">
+                    <img src="rank_icons/donator.png" class="container-content">
+                <h3>Donator</h3>
+                <h3>650.000$</h3>
+                <a href="ranks.html#donator"><button class="buy">Informationen zum Rang</button></a>
             </div>
 
             <div class="container">
                 <img src="rank_icons/elite.png" class="container-content">
             <h3>Elite</h3>
-            <h3>8,50€</h3>
-            <button class="buy" onclick="addToCart('Elite Rang', 8.50)">In den Warenkorb</button>
+            <h3>750.000$</h3>
+            <a href="ranks.html#elite"><button class="buy">Informationen zum Rang</button></a>
         </div>
         </div>
     </div>
@@ -343,5 +359,6 @@
     <footer>
         <p>&copy; LuxiSMP Webseite. Alle Rechte vorbehalten. <a href="./privacy-policy.html">Datenschutzerklärung.</a> <a href="./terms-of-service.html">Nutzungsbedingungen.</a></p>
     </footer>
+</div>
 </body>
 </html>

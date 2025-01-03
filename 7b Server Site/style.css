@@ -9,6 +9,10 @@ body, html {
     overflow-x: hidden;
 }
 
+h1, h2, h3 {
+    scroll-margin-top: 70px;
+}
+
 p {
     font-size: 20px;
 }
@@ -60,7 +64,7 @@ input {
     color: white;
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #1BD96A; /* Facebook */
+    background-color: #1BD96A;
     border-radius: 5px;
 }
 
@@ -144,15 +148,6 @@ a {
 
 .rank-info-text {
     margin-left: 3px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 0 15px;
-    font-weight: bold;
-    position: relative;
-    top: 15px;
 }
 
 .code-sbm {
@@ -446,4 +441,140 @@ textarea#description:hover {
 
 .fa-circle-check {
     color: lightgreen;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0 15px;
+    font-weight: bold;
+    position: relative;
+    top: 15px;
+}
+
+/* Right Section (Dropdown) */
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 30px;
+    font-size: 16px;
+}
+
+.dropdown button:hover {
+    background-color: #444;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #333;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-right: 20px;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content to Test Scrolling */
+.content {
+    margin-top: 70px; /* To offset the navbar */
+    padding: 20px;
+}
+
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    z-index: 1000;
+    text-align: left;
+}
+
+.openbtn:hover {
+    color: yellow;
+    transition: 0.3 ease;
+}
+
+.logo img {
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    margin-left: 60px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    background-color: rgba(51, 51, 51, 1);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: yellow;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }

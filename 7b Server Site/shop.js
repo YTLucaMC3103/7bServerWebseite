@@ -1,3 +1,4 @@
+/*
 const ranks = [
     { id: "Donator", price: 7.50 },
     { id: "VIP", price: 5.50 },
@@ -57,3 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     renderShop();
 });
+*/
